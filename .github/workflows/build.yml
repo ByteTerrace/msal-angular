@@ -19,7 +19,7 @@ jobs:
       - name: build npm package
         run: npm run-script ng build --prod
         shell: pwsh
-      - name: Upload a Build Artifact
+      - name: publish workflow artifacts
         uses: actions/upload-artifact@v2.2.1
         with:
           if-no-files-found: error
