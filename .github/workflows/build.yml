@@ -1,0 +1,14 @@
+name: Npm-Packager
+
+on: push
+
+jobs:
+  build:
+    name: create npm package artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: build npm package
+        run: npm run-script ng build --prod
+        shell: pwsh
