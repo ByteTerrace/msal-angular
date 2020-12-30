@@ -23,5 +23,5 @@ jobs:
         uses: actions/upload-artifact@v2.2.1
         with:
           if-no-files-found: error
-          path: ${{ github.workspace }}/msal-angular/msal-angular/dist
+          path: dist
           retention-days: 13
