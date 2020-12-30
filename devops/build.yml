@@ -1,0 +1,22 @@
+steps:
+- task: CmdLine@2
+  displayName: 'install npm packages'
+  enabled: true
+  inputs:
+    script: 'npm ci'
+- task: CmdLine@2
+  displayName: 'build npm package'
+  enabled: true
+  inputs:
+    script: 'npm run-script ng build --prod'
+- task: CopyFiles@2
+  displayName: 'copy .npmrc to output'
+  inputs:
+    contents: '.npmrc' 
+    targetFolder: '$(Build.SourcesDirectory)/dist/byteterrace/msal-angular'
+- task: PublishPipelineArtifact@1
+  displayName: 'publish pipeline artifacts'
+  enabled: true
+  inputs:
+    artifactName: 'drop'
+    targetPath: '$(Build.SourcesDirectory)/dist'

@@ -1,0 +1,3 @@
+- finish adding support for eslint
+- automate the linting process during build
+- automate the testing process during build
