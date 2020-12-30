@@ -7,6 +7,12 @@ jobs:
     name: create npm package artifacts
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
       - name: install npm dependencies
         run: npm ci
         shell: pwsh
@@ -17,5 +23,5 @@ jobs:
         uses: actions/upload-artifact@v2.2.1
         with:
           if-no-files-found: error
-          path: ${{ github.workspace }}/msal-angular/dist
+          path: ${{ github.workspace }}/msal-angular/msal-angular/dist
           retention-days: 13
